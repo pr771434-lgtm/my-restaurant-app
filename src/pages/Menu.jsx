@@ -1,37 +1,36 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { FaSearch, FaWhatsapp, FaLeaf, FaShoppingBag, FaStar } from 'react-icons/fa';
+import { FaSearch, FaWhatsapp, FaLeaf, FaShoppingBag } from 'react-icons/fa';
 
 const menuData = [
-  // STARTERS (6)
-  { id: 1, category: "Starters", name: "Paneer Tikka", price: 280, img: "src/assets/Paneer Tikka.jpg", desc: "Charcoal grilled cottage cheese with secret spices." },
-  { id: 2, category: "Starters", name: "Crispy Corn", price: 220, img: "https://images.unsplash.com/photo-1514326640560-7d063ef2aed5?q=80&w=500", desc: "Golden fried corn tossed in tangy Indori masala." },
+  // STARTERS
+  { id: 1, category: "Starters", name: "Paneer Tikka", price: 280, img: "/Paneer Tikka.jpg", desc: "Charcoal grilled cottage cheese with secret spices." },
+  { id: 2, category: "Starters", name: "Crispy Corn", price: 220, img: "public/crispy corn.jpg", desc: "Golden fried corn tossed in tangy Indori masala." },
   { id: 3, category: "Starters", name: "Hara Bhara Kabab", price: 240, img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=500", desc: "Healthy spinach and green pea patties." },
   { id: 4, category: "Starters", name: "Cheese Chilli Toast", price: 190, img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=500", desc: "Crunchy bread topped with melted cheese and chillies." },
   { id: 5, category: "Starters", name: "Veg Spring Rolls", price: 210, img: "https://images.unsplash.com/photo-1617093727343-374698b1b08d?q=80&w=500", desc: "Crispy rolls filled with sautéed vegetables." },
-  { id: 6, category: "Starters", name: "Mushroom Duplex", price: 260, img: "src/assets/Mushroom Duplex.jpg", desc: "Stuffed mushrooms fried to perfection." },
+  { id: 6, category: "Starters", name: "Mushroom Duplex", price: 260, img: "/Mushroom Duplex.jpg", desc: "Stuffed mushrooms fried to perfection." },
 
-  // MAIN COURSE (7)
-  { id: 7, category: "Main Course", name: "Indori Dal Bafla", price: 350, img: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?q=80&w=500", desc: "The pride of Indore. Served with ghee, dal, and chutneys." },
-  { id: 8, category: "Main Course", name: "Paneer Butter Masala", price: 320, img: "src/assets/Paneer Butter Masala ( Step by step paneer Makhani) - Ruchiskitchen.jpg", desc: "Rich and creamy tomato-based cottage cheese gravy." },
+  // MAIN COURSE
+  { id: 7, category: "Main Course", name: "Indori Dal Bafla", price: 350, img: "/Dal Bati.jpg", desc: "The pride of Indore. Served with ghee, dal, and chutneys." },
+  { id: 8, category: "Main Course", name: "Paneer Butter Masala", price: 320, img: "public/Paneer Butter Masala ( Step by step paneer Makhani) - Ruchiskitchen.jpg", desc: "Rich and creamy tomato-based cottage cheese gravy." },
   { id: 9, category: "Main Course", name: "Veg Maratha", price: 290, img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=500", desc: "Spicy vegetable koftas in a thick red gravy." },
   { id: 10, category: "Main Course", name: "Dal Tadka", price: 180, img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=500", desc: "Yellow lentils tempered with ghee and red chillies." },
   { id: 11, category: "Main Course", name: "Malai Kofta", price: 310, img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=500", desc: "Soft paneer balls in a silky white cashew gravy." },
-  { id: 12, category: "Main Course", name: "Kadhai Paneer", price: 300, img: "src/assets/Kadai Paneer.jpg", desc: "Cottage cheese with bell peppers and ground spices." },
-  { id: 13, category: "Main Course", name: "Veg Biryani", price: 280, img: "src/assets/Vegetable Dum Biryani (In oven).jpg", desc: "Aromatic basmati rice cooked with garden veggies." },
+  { id: 12, category: "Main Course", name: "Kadhai Paneer", price: 300, img: "/Kadai Paneer.jpg", desc: "Cottage cheese with bell peppers and ground spices." },
+  { id: 13, category: "Main Course", name: "Veg Biryani", price: 280, img: "/Vegetable Dum Biryani (In oven).jpg", desc: "Aromatic basmati rice cooked with garden veggies." },
 
-  // FAST FOOD (5)
-  { id: 14, category: "Fast Food", name: "Cheese Sandwich", price: 180, img: "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=500", desc: "Double layered cheesy goodness with local herbs." },
+  // FAST FOOD
+  { id: 14, category: "Fast Food", name: "Cheese Sandwich", price: 180, img: "public/Cheez Sandwitch.jpg", desc: "Double layered cheesy goodness with local herbs." },
   { id: 15, category: "Fast Food", name: "Veg Burger", price: 150, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500", desc: "Classic veggie patty with secret mayo." },
   { id: 16, category: "Fast Food", name: "Peri Peri Fries", price: 120, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=500", desc: "Crispy fries dusted with hot peri peri spice." },
-  { id: 17, category: "Fast Food", name: "White Sauce Pasta", price: 230, img: "src/assets/download (16).jpg", desc: "Penne pasta in a creamy cheesy sauce." },
-  { id: 18, category: "Fast Food", name: "Veg Manchurian", price: 200, img: "src/assets/Easy Veg Manchurian.jpg", desc: "Deep fried veg balls in a tangy soy ginger sauce." },
+  { id: 17, category: "Fast Food", name: "White Sauce Pasta", price: 230, img: "/download (16).jpg", desc: "Penne pasta in a creamy cheesy sauce." },
+  { id: 18, category: "Fast Food", name: "Veg Manchurian", price: 200, img: "/Easy Veg Manchurian.jpg", desc: "Deep fried veg balls in a tangy soy ginger sauce." },
 
-  // DRINKS (2)
-  { id: 19, category: "Drinks", name: "Masala Chai", price: 40, img: "src/assets/Mashala chai.jpg", desc: "Authentic ginger and cardamom milk tea." },
-  { id: 20, category: "Drinks", name: "Indori Lassi", price: 80, img: "src/assets/download (17).jpg", desc: "Thick creamy curd drink topped with malai." },
+  // DRINKS
+  { id: 19, category: "Drinks", name: "Masala Chai", price: 40, img: "/Mashala chai.jpg", desc: "Authentic ginger and cardamom milk tea." },
+  { id: 20, category: "Drinks", name: "Indori Lassi", price: 80, img: "/download (17).jpg", desc: "Thick creamy curd drink topped with malai." },
 ];
-
 const Menu = ({ onAddToCart }) => {
   const [filter, setFilter] = useState("All");
   const [search, setSearch] = useState("");
@@ -61,7 +60,7 @@ const Menu = ({ onAddToCart }) => {
             animate={{ 
               x: [flyingItem.x, window.innerWidth/2, window.innerWidth - 60], 
               y: [flyingItem.y, window.innerHeight/2, 30],
-              scale: [0.6, 1.4, 0.1], // Zoom In then Zoom Out
+              scale: [0.6, 1.4, 0.1], 
               opacity: [1, 1, 0]
             }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
@@ -96,7 +95,6 @@ const Menu = ({ onAddToCart }) => {
         </div>
       </div>
 
-      {/* GRID SCALED DOWN FOR MOBILE */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
         {filteredItems.map((item) => (
           <motion.div
