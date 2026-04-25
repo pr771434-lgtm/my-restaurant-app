@@ -5,7 +5,7 @@ import { FaSearch, FaWhatsapp, FaLeaf, FaShoppingBag } from 'react-icons/fa';
 const menuData = [
   // STARTERS
   { id: 1, category: "Starters", name: "Paneer Tikka", price: 280, img: "/Paneer Tikka.jpg", desc: "Charcoal grilled cottage cheese with secret spices." },
-  // Yahan 'public/' hata diya aur file name match kiya
+  // Screenshot mein 'C' capital hai 'Crispy corn.jpg' mein
   { id: 2, category: "Starters", name: "Crispy Corn", price: 220, img: "/Crispy corn.jpg", desc: "Golden fried corn tossed in tangy Indori masala." },
   { id: 3, category: "Starters", name: "Hara Bhara Kabab", price: 240, img: "https://images.unsplash.com/photo-1626074353765-517a681e40be?q=80&w=500", desc: "Healthy spinach and green pea patties." },
   { id: 4, category: "Starters", name: "Cheese Chilli Toast", price: 190, img: "https://images.unsplash.com/photo-1525351484163-7529414344d8?q=80&w=500", desc: "Crunchy bread topped with melted cheese and chillies." },
@@ -14,7 +14,7 @@ const menuData = [
 
   // MAIN COURSE
   { id: 7, category: "Main Course", name: "Indori Dal Bafla", price: 350, img: "/Dal Bati.jpg", desc: "The pride of Indore. Served with ghee, dal, and chutneys." },
-  // Yahan 'public/' hata kar screenshot wala sahi naam likha hai
+  // Is file ka naam screenshot mein bahut lamba hai, dhyan se match kiya hai
   { id: 8, category: "Main Course", name: "Paneer Butter Masala", price: 320, img: "/Paneer Butter Masala ( Step by step paneer Makhani) - Ruchiskitchen.jpg", desc: "Rich and creamy tomato-based cottage cheese gravy." },
   { id: 9, category: "Main Course", name: "Veg Maratha", price: 290, img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=500", desc: "Spicy vegetable koftas in a thick red gravy." },
   { id: 10, category: "Main Course", name: "Dal Tadka", price: 180, img: "https://images.unsplash.com/photo-1585937421612-70a008356fbe?q=80&w=500", desc: "Yellow lentils tempered with ghee and red chillies." },
@@ -23,7 +23,7 @@ const menuData = [
   { id: 13, category: "Main Course", name: "Veg Biryani", price: 280, img: "/Vegetable Dum Biryani (In oven).jpg", desc: "Aromatic basmati rice cooked with garden veggies." },
 
   // FAST FOOD
-  // 'Sandwitch' spelling fix (Jo aapke sidebar mein thi)
+  // 'Sandwitch' spelling aapke sidebar mein 'w-i-t-c-h' hai
   { id: 14, category: "Fast Food", name: "Cheese Sandwich", price: 180, img: "/Cheez Sandwitch.jpg", desc: "Double layered cheesy goodness with local herbs." },
   { id: 15, category: "Fast Food", name: "Veg Burger", price: 150, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=500", desc: "Classic veggie patty with secret mayo." },
   { id: 16, category: "Fast Food", name: "Peri Peri Fries", price: 120, img: "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=500", desc: "Crispy fries dusted with hot peri peri spice." },
